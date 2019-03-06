@@ -91,7 +91,7 @@ Pod::Spec.new do |s|
 
   s.source_files  = "SvUDID/UDID_Tools/*.{h,m}"
 
-   s.public_header_files = "SvUDID/UDID_Tools/*.h"
+  s.public_header_files = "SvUDID/UDID_Tools/*.h"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
