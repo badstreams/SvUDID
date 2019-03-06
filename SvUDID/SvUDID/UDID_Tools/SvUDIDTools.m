@@ -17,6 +17,9 @@
 static const char kKeychainUDIDItemIdentifier[]  = "UUID";
 static const char kKeyChainUDIDAccessGroup[] = "YOURAPPID.com.cnblogs.smileEvday";
 
+//为了审核安全，关闭读取网卡物理地址相关代码
+#define  Check_Safe   0
+
 @implementation SvUDIDTools
 
 + (NSString*)UDID
@@ -30,24 +33,18 @@ static const char kKeyChainUDIDAccessGroup[] = "YOURAPPID.com.cnblogs.smileEvday
         if (version >= 7.0) {
             udid = [SvUDIDTools _UDID_iOS7];
         }
+#if Check_Safe
         else if (version >= 2.0) {
             udid = [SvUDIDTools _UDID_iOS6];
         }
-    
+#endif
         [SvUDIDTools settUDIDToKeyChain:udid];
     }
     
     return udid;
 }
 
-/*
- * iOS 6.0
- * use wifi's mac address
- */
-+ (NSString*)_UDID_iOS6
-{
-    return [SvUDIDTools getMacAddress];
-}
+
 
 /*
  * iOS 7.0
@@ -61,6 +58,16 @@ static const char kKeyChainUDIDAccessGroup[] = "YOURAPPID.com.cnblogs.smileEvday
     return [[UIDevice currentDevice].identifierForVendor UUIDString];
 }
 
+
+#if Check_Safe
+/*
+ * iOS 6.0
+ * use wifi's mac address
+ */
++ (NSString*)_UDID_iOS6
+{
+    return [SvUDIDTools getMacAddress];
+}
 
 #pragma mark -
 #pragma mark Helper Method for Get Mac Address
@@ -136,6 +143,8 @@ static const char kKeyChainUDIDAccessGroup[] = "YOURAPPID.com.cnblogs.smileEvday
     
     return macAddressString;
 }
+
+#endif
 
 #pragma mark -
 #pragma mark Helper Method for make identityForVendor consistency
