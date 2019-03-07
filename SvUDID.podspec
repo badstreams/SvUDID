@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "SvUDID"
-  s.version      = "0.0.7"
+  s.version      = "0.0.8"
   s.summary      = "获取设备id"
 
   # This description is used to generate tags and improve search results.
@@ -38,7 +38,7 @@ Pod::Spec.new do |s|
   #
 
   #s.license      = "MIT (example)"
-  s.license      = { :type => "MIT", :file => "LICENSE" }
+  s.license      = { :type => "MIT", :file => "SvUDID/LICENSE" }
 
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -89,9 +89,9 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = 'SvUDID/UDID_Tools/**/*'
+  s.source_files  = 'SvUDID/SvUDID/UDID_Tools/**/*'
 
-  s.public_header_files = "SvUDID/UDID_Tools/*.h"
+  s.public_header_files = "SvUDID/SvUDID/UDID_Tools/*.h"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -102,7 +102,7 @@ Pod::Spec.new do |s|
   #  non-essential files like tests, examples and documentation.
   #
 
-  s.resource  = "KeychainAccessGroups.plist"
+  s.resource  = "SvUDID/KeychainAccessGroups.plist"
   # s.resources = "Resources/*.png"
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
